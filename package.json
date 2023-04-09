@@ -2,12 +2,14 @@
   "name": "src",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.ts",
+    "dev": "nodemon server.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +19,17 @@
     "cors": "^2.8.5",
     "dotenv-safe": "^8.2.0",
     "express": "^4.18.1",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.4.3"
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.15.11",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -30,6 +38,8 @@
     "jest": "^28.1.2",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
-    "supertest": "^6.2.4"
+    "supertest": "^6.2.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   }
 }
