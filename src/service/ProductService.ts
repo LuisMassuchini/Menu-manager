@@ -66,16 +66,16 @@ export class ProductService {
 
     if(category != null){
         const findCategory = await CategorySchema.findById(category);
-        const categoryArray = findProduct.categories;
-
-
+        if(findCategory != null) {
+            const categoryArray = findProduct.categories;
             const categoriesArray = categoryArray.find((item: Category) =>
             item.name == findCategory.name)
 
             if(categoriesArray == undefined || categoriesArray == null) {
                 findProduct.categories.push(findCategory);
             }
-        
+        }
+
     }
 
     const updatedProduct = await findProduct.save();

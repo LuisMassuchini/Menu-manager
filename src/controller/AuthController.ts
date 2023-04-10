@@ -10,9 +10,9 @@ export class AuthController {
     public signIn = async(req, res) => {
         try{
 
-            const login = await this.service.signIn(req.body);
+            const token = await this.service.signIn(req.body);
 
-            if(login == null) {
+            if(token == null) {
                return res.status(401).json({
                     message: 'It was not possible to login',
                     details: 'Check your login and password before trying to login again',
@@ -20,7 +20,7 @@ export class AuthController {
             } else {
                 return  res.status(200).json({
                     message: 'Login authorized.',
-                    login,
+                    token: token,
                   });
             }
 
