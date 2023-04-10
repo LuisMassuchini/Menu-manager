@@ -20,6 +20,7 @@ public signIn = async (adminData: AdminRequest) => {
     } = adminData;
 
     let isValid: boolean;
+    let token: string;
 
         const findAdmin = await AdminSchema.findOne({
           $or: [{ email: email }, { username: username }],
@@ -38,7 +39,7 @@ public signIn = async (adminData: AdminRequest) => {
               }
         
               if (username) {
-                const token = jwt.sign({ username: findAdmin.username }, this.SECRET);
+                 token = jwt.sign({ username: findAdmin.username }, this.SECRET);
                     if(token) {;
                         isValid = true;
                     }
@@ -46,7 +47,7 @@ public signIn = async (adminData: AdminRequest) => {
               }
         
               if (email) {
-                const token = jwt.sign({ email: findAdmin.email }, this.SECRET);
+                 token = jwt.sign({ email: findAdmin.email }, this.SECRET);
                     if(token) {
                         isValid = true;
                     }
@@ -54,7 +55,7 @@ public signIn = async (adminData: AdminRequest) => {
         }
 
         if(isValid) {
-            return findAdmin;
+            return token;
         } else {
             return null;
         }
